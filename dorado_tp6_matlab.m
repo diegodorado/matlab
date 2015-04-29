@@ -1,8 +1,8 @@
 fprintf('\n');
 fprintf('---------------- \n');
-fprintf('CLASE 9 – MAPEO CONFORME \n');
+fprintf('CLASE 9 MAPEO CONFORME \n');
 fprintf('---------------- \n');
-fprintf('Mapear el recinto (y=1, y=x, y=-x) a través de la funciones z^2 y 1/z \n');
+fprintf('Mapear el recinto (y=1, y=x, y=-x) a traves de la funciones z^2 y 1/z \n');
 fprintf('\n');
 
 clf
