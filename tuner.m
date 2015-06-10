@@ -182,4 +182,56 @@ function pushbutton_synth_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton_synth (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+
+  fs = sampleRate(handles);
+  nBits = 16;
+  x = handles.recordData;
+  
+  
+  N = length(x);
+
+  % Calculate spectrum
+  X = abs(fft(x)); %/N;
+  maxX = max(X)
+  % Prepare frequency axis
+  freqs = (-N/2:N/2-1).*(fs/N);
+  
+   
+
+  synth_abs_y = zeros(N,1);
+  [ pks,idx]=findpeaks(X,'SortStr','descend','NPeaks',1);
+  synth_abs_y(idx) = pks;
+
+  %synth = real(ifft(synth_abs_y));
+  %synth = real(ifft(y2));
+    
+  axes(handles.axes_freq);
+  hold on;
+  
+  
+  fundamental = 440;
+  %rango de semitonos
+  st = -36:36;
+  freq_tonos = fundamental* 2.^(st/12);
+  stem(freq_tonos, ones(length(st))*maxX);  
+  disp(max(X));
+  % Plot the waveform.
+  plot(freqs,fftshift(X));
+  xlabel('Frecuencia [Hz]');
+  ylabel('Amplitud(X)');
+
+
+  %axes(handles.axes_notes);
+
+
+  grid;
+  hold off;
+
+  % Plot the waveform.
+  %plot(log2(freqs),fftshift(X));
+  %xlabel('Frecuencia [Hz]');
+  %ylabel('Amplitud(X)');  
+  
+  
 end
