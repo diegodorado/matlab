@@ -156,13 +156,13 @@ x3 = ifft(y3);
 %sound(x3,sr);
 
 
-subplot(211);
-plot(t,x1,t,x2,t,x3);
-legend('x1','x2','x3');
-subplot(223);
-plot(abs(y2));
-subplot(224);
-plot(angle(y2));
+%subplot(211);
+%plot(t,x1,t,x2,t,x3);
+%legend('x1','x2','x3');
+%subplot(223);
+%plot(abs(y2));
+%subplot(224);
+%plot(angle(y2));
 
 
 
